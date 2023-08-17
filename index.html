@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypercube rotations</title>
+  </head>
+  <body>
+    <div id="status-message" class="hidden"></div>
+
+    <svg class="board" width="1400" height="1400">
+      <filter id="displacementFilter">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.25"
+          numOctaves="2"
+          result="turbulence"
+        />
+        <feDisplacementMap
+          in2="turbulence"
+          in="SourceGraphic"
+          scale="4"
+          xChannelSelector="R"
+          yChannelSelector="B"
+          result="noise"
+        />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feComposite in2="blur" in="noise" operater="lighter" />
+      </filter>
+
+      <g class="hypercube-faces-root"></g>
+
+      <text x="596" y="1350" class="text title-text"></text>
+    </svg>
+
+    <div id="version-info" class="hidden"></div>
+
+    <script type="module" src="main.ts"></script>
+  </body>
+</html>
