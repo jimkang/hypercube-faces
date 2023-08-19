@@ -2,20 +2,28 @@ import './app.css';
 import handleError from 'handle-error-web';
 import { version } from './package.json';
 // import { renderFunnels } from './renderers/render-funnels';
-import { createCameraVectors } from './updaters/create-schmatics';
+import {
+  createCameraVectors,
+  createFacePointedAtByVector,
+} from './updaters/create-schmatics';
 import { select, selectAll } from 'd3-selection';
+import { Vector, Pt } from './types';
 
 (async function go() {
   window.onerror = reportTopLevelError;
   renderVersion();
 
-  var cameraVectors3D = createCameraVectors({ dimensions: 3 });
+  var cameraVectorsDict: Record<string, Vector[]> = {};
+  var faceListsDict: Record<string, Pt[][]> = {};
 
-  console.log('1', createCameraVectors({ dimensions: 1 }));
-  console.log('2', createCameraVectors({ dimensions: 2 }));
-  console.log('3', createCameraVectors({ dimensions: 3 }));
-  console.log('4', createCameraVectors({ dimensions: 4 }));
-  console.log('5', createCameraVectors({ dimensions: 5 }));
+  for (let i = 1; i < 6; ++i) {
+    cameraVectorsDict[i] = createCameraVectors({ dimensions: i });
+    faceListsDict[i] = cameraVectorsDict[i].map(createFacePointedAtByVector);
+  }
+
+  console.log('cameraVectors', cameraVectorsDict);
+  console.log('faceLists', faceListsDict);
+
   // select('.board').attr('width', boardWidth).attr('height', boardHeight);
   // selectAll('.text').classed('hidden', !showText);
 })();
