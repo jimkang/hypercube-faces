@@ -8,6 +8,52 @@
   <body>
     <div id="status-message" class="hidden"></div>
 
+    <div>[Rotation tool goes here]</div>
+    <p>
+      The hypercube is a 4-dimensional cube. You may have seen visualizations of
+      it that look like this:
+    </p>
+    <img alt="The popular tesseract image" />
+    <p>
+      The tesseract image is useful for showing you how the vertices in a
+      hypercube can connect to form 8 different 3D cubes. (There's the inner
+      cube, the outer cube, then 6 cubes connecting the inner cube to the outer
+      cube.) Without context, this image can be misleading. The 6 connecting
+      cubes are drawn using lines that A) are not at right angles to each other
+      and B) appear to be lines in 3D space. A casual scroller might think, oh,
+      the hypercube is just two nested cubes with lines connecting them.
+    </p>
+    <p>But that's not what it is.</p>
+    <p>
+      The hypercube has "depth" in a fourth dimension which is imaginary.
+      (AFAIK; please <a href="mailto:jimkang@fastmail.com">let me know</a> if
+      the fourth dimension has been proven to be real.) Even if it is not
+      imaginary, we can't see it because we can only perceive 3D. The lines
+      moving along that fourth dimension (assuming the hypercube we're talking
+      about has edges parallel to the x, y, z, and w axes) are actually
+      perpendicular to edges along the first three dimensions (where
+      perpendicularity is tested by getting the dot product of the edges that
+      might be perpendicular to each other and verifying that the dot product is
+      0).
+    </p>
+    <p>So, what could we actually perceive about a hypercube?</p>
+    <p>
+      If you do the Flatland thing and think about someone that can only
+      perceive 2D, what could they perceive about a 3D cube? They could see the
+      faces as squares when the cube is in certain "cardinal" positions (edges
+      parallel to axes). So, we 3D perceivers could can see the faces of a
+      hypercube as cubes when it is in cardinal positions.
+    </p>
+    <p>TODO: Tweening between positions</p>
+    <p>
+      It's analagous to the hypersquare, which we usually think of as
+      "traditional" cubes. Just as all of the faces of the hypersquare are
+      squares, all of the faces of the hypercube are (traditional) cubes. These
+      cube faces are 3D, which is different from the 2D faces we're used to
+      think of when we think of traditional cubes, so we have to think of what
+      we mean by a face.
+    </p>
+    <p>A</p>
     <svg class="board" width="1400" height="1400">
       <filter id="displacementFilter">
         <feTurbulence
